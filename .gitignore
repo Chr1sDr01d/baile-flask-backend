@@ -4,7 +4,8 @@ __pycache__/
 *$py.class
 *.pyc
 __pycache__/
-
+.env
+virtualenv/
 # C extensions
 *.so
 
