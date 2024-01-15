@@ -161,9 +161,6 @@ def samsung_tv_launch_app():
     success_response, success = send_command(command_data)
     return jsonify(success_response), 200 if success else 500
 
-
-
-
 #---------------------------------------------#
 # Govee Heater Devices API
 #---------------------------------------------#
@@ -174,12 +171,13 @@ def govee_heater_get_devices():
     response, success = get_govee_heater_devices()
     return jsonify(response), 200 if success else 500
 
-@app.route('/govee-heater/control', methods=['GET', 'OPTIONS'])
+@app.route('/govee-heater/control', methods=['POST', 'OPTIONS'])
 @cross_origin()  # Ad
 def govee_heater_control_device():
-    device = request.json.get('device')
-    model = request.json.get('model')
-    cmd = request.json.get('cmd')
+    data = request.json
+    device = data.get('device')
+    model = data.get('model')
+    cmd = data.get('cmd')
     response, success = control_govee_heater(device, model, cmd)
     return jsonify(response), 200 if success else 500
 
