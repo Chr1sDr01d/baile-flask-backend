@@ -55,3 +55,22 @@ This will start the Flask server on `http://localhost:5000`.
 
 - Document the available API endpoints and their expected inputs/outputs.
 - Example:
+```json
+GET /api/device-status
+POST /api/send-command
+```
+
+
+## Contributing
+
+Contributions to the Baile Flask Backend are welcome. Please follow the project's contributing guidelines for pull requests and code standards.
+
+## License
+
+This project is licensed under the [MIT License](LICENSE).
+
+## Acknowledgements
+
+- Flask
+- Python
+- Requests Library

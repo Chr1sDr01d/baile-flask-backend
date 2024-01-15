@@ -2,9 +2,19 @@
 
 import requests
 import os
+import logging
+from dotenv import load_dotenv
+load_dotenv()
+logging.basicConfig(level=logging.INFO)
+logger = logging.getLogger(__name__)
 
 govee_api_key = os.getenv('GOVEE_API_KEY')
-GOVEE_BASE_URL = "https://developer-api.govee.com/v1"
+if not govee_api_key:
+    raise ValueError("GOVEE_API_KEY environment variable not set")
+    
+logger.info(f"GOVEE_API_KEY: {govee_api_key}")
+GOVEE_BASE_URL = "https://developer-api.govee.com/v1" 
+
 
 def get_govee_heater_devices():
     headers = {"Govee-API-Key": govee_api_key}
